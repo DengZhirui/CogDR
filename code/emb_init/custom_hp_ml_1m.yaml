@@ -1,0 +1,17 @@
+model_name: "TransR"
+datasets:
+  - dataset: "ml-1m"
+    parameters:
+      learning_rate: 0.01
+      l1_flag: True
+      hidden_size: 64
+      ent_hidden_size: 64
+      rel_hidden_size: 64
+      batch_size: 1024
+      epochs: 100
+      margin: 1.00
+      optimizer: "sgd"
+      sampling: "bern"
+      neg_rate: 1
+      device: "cuda"
+      test_num: 9000
