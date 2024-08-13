@@ -1,5 +1,7 @@
 # CogDR
 
+Utilizing dataset ``ml-1m'' as example.
+
 ### Data Pre-Process
 ```
 cd data_process
