@@ -8,7 +8,7 @@ import dgl
 import dgl.function as fn
 import dgl.nn as dglnn
 from dgl.nn import GraphConv
-from models.layers import DGRecLayer
+from models.layers import Cog4DRLayer
 import numpy as np
 import faiss
 import math
@@ -91,9 +91,9 @@ class BaseGraphModel(nn.Module):
         scores = torch.mm(user_embed, item_embed.t())
         return scores
 
-class DGRec(BaseGraphModel):
+class Cog4DR(BaseGraphModel):
     def __init__(self, args, dataloader):
-        super(DGRec, self).__init__(args, dataloader)
+        super(Cog4DR, self).__init__(args, dataloader)
         self.W = torch.nn.Parameter(torch.randn(self.args.embed_size, self.args.embed_size))
         self.a = torch.nn.Parameter(torch.randn(self.args.embed_size))
 
@@ -111,7 +111,7 @@ class DGRec(BaseGraphModel):
         self.complex_weight = nn.Parameter(torch.randn(1, self.args.topk // 2 + 1, self.args.embed_size, 2, dtype=torch.float32) * 0.02)
 
     def build_layer(self, idx):
-        return DGRecLayer(self.args)
+        return Cog4DRLayer(self.args)
 
     def layer_attention(self, ls, W, a):
         tensor_layers = torch.stack(ls, dim = 0)
