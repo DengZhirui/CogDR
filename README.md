@@ -1,12 +1,11 @@
 # CogDR
 
-Utilizing dataset ``ml-1m'' as example.
+Utilizing dataset **ml-1m** as example.
 
 ### Data Pre-Process
 ```
 cd data_process
-DATASET='ml-1m'
-python data_process.py --dataset $DATASET
+python data_process.py --dataset ml-1m
 ```
 
 ### Embedding Initializing
