@@ -7,7 +7,7 @@ import dgl.function as fn
 import dgl.nn as dglnn
 import numpy as np
 
-class DGRecLayer(nn.Module):
+class Cog4DRLayer(nn.Module):
     def __init__(self, args):
         super().__init__()
         self.k = args.k
